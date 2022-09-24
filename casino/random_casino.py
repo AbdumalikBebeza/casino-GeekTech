@@ -26,7 +26,6 @@ def start():
 
             user_num = int(input("выберите число "))
 
-
             print(f"ваше число - {user_num}")
             rang = random.randint(1, 31)
             print(f"число казино - {rang}")
@@ -47,6 +46,3 @@ def start():
         elif balanse <= 0:
             print("у вас закончились деньги")
             break
-
-
-start()
