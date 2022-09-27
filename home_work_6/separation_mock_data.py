@@ -44,7 +44,11 @@ class Data:
     def color(self, value):
         self.__color = value
 
-
+    def __str__(self):
+        return f"emails - {email_mock}\n" \
+               f" colors - {colors_mock} \n" \
+               f"full_names - {full_name_mock} \n" \
+               f"file_names - {file_name_mock}"
 with open("MOCK_DATA.txt", "r", encoding='UTF-8') as file:
     file.read()
     colors_mock = re.findall(r"#[0-9A-Fa-f]{6}", content)
@@ -65,11 +69,10 @@ with open("MOCK_DATA.txt", "r", encoding='UTF-8') as file:
     file_name_mock = re.findall(r"\t[A-Za-z][a-zA-Z]+\.[a-z]+", content)
     with open("fil_names", "w", encoding='UTF-8') as file:
         for i in file_name_mock:
-            file.write(f"{i}\n")
-            print(i)
+            file.write(f"{i[1:]}\n")
+           # print(i)
 
 
-# megacom = re.findall(r"\+996 (?:55[0-9]|99[0-9]|755) [0-9 ]{8}", content)
-# print(megacom)
-# nur_telecom = re.findall(r"\+996 (?:50[0-9]|70[0-9]) [0-9 ]{8}", content)
-# print(nur_telecom)
+mock_data = Data(full_name_mock, email_mock, file_name_mock, colors_mock)
+print(mock_data)
+
